@@ -8,8 +8,6 @@ var ExpressValidator = require('express-validator');
 var fileUpload= require('express-fileupload');
 var passport= require('passport');
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 //connect to the DB
 mongoose.connect(Config.database);
 
@@ -161,13 +159,10 @@ app.use('/cart', cart);
 app.use('/users', users);
 app.use('/', pages);
 
-http.listen(process.env.PORT || 3000, function(){
-  console.log('listening on', http.address().port);
-});
 
 // start server
-//var port =3000;
-//app.listen(port,function() {
+var port =8080;
+app.listen(port,function() {
 
-  //  console.log('server started on port'+ port);
-//});
+  console.log('server started on port'+ port);
+});

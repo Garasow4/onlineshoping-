@@ -162,7 +162,7 @@ app.use('/', pages);
 
 // start server
 var port =8080;
-app.listen(port,function() {
+app.listen(process.env.PORT || port,function() {
 
   console.log('server started on port'+ port);
 });
